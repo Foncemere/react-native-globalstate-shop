@@ -1,12 +1,6 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import type {PropsWithChildren} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 import {
   SafeAreaView,
   ScrollView,
@@ -18,6 +12,7 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import StackNavigation from './src/Navigation';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -58,18 +53,11 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Text>Zustand</Text>
-        <Text>https://docs.pmnd.rs/zustand/getting-started/comparison</Text>
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView style={backgroundStyle}>
+        <StackNavigation />
+      </SafeAreaView>
+    </NavigationContainer>
   );
 }
 
