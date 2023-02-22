@@ -1,6 +1,6 @@
-import createStackNavigator from 'react-native-screens/createNativeStackNavigator';
 import React from 'react';
 import {Text, View} from 'react-native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 function HomeScreen() {
   return (
@@ -9,8 +9,10 @@ function HomeScreen() {
     </View>
   );
 }
+
+const Stack = createNativeStackNavigator();
+
 function StackNavigation() {
-  const Stack = createStackNavigator();
   return (
     <Stack.Navigator>
       <Stack.Screen name={'Home'} component={HomeScreen} />
