@@ -3,10 +3,15 @@ import {FlatList, Text, TextInput, View} from 'react-native';
 import Styles from './styles';
 import DatabaseOfItems from '../../fakeData/databaseOfItems';
 import {GridTile} from '../../components/GridTile';
+import BaseStyles from '../../baseStyling/styles';
 
 const HomeScreen = () => {
-  const renderItem = ({}) => {
-    return <GridTile />;
+  const renderItem = ({item, index}) => {
+    return <GridTile id={item} />;
+  };
+
+  const itemSeperator = () => {
+    return <View style={BaseStyles.standard_gap} />;
   };
 
   return (
@@ -17,8 +22,10 @@ const HomeScreen = () => {
       </View>
       <FlatList
         numColumns={2}
+        contentContainerStyle={{marginTop: 12}}
         data={Object.keys(DatabaseOfItems)}
         renderItem={renderItem}
+        ItemSeparatorComponent={itemSeperator}
       />
     </View>
   );
