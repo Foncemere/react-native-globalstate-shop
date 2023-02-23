@@ -23,11 +23,11 @@ function App(): JSX.Element {
   };
 
   return (
-    <NavigationContainer>
-      <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView style={backgroundStyle}>
+      <NavigationContainer>
         <StackNavigation />
-      </SafeAreaView>
-    </NavigationContainer>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }
 
