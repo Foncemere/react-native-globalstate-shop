@@ -16,7 +16,7 @@ export const DatabaseOfItems = {
       },
     },
   },
-  jewelry: {
+  jewelries: {
     title: 'Jewelries',
     data: {
       rock: {
@@ -47,6 +47,23 @@ export const DatabaseOfItems = {
       hat: {
         price: 100,
         description: "It's a hat.",
+      },
+    },
+  },
+  books: {
+    title: 'Books',
+    data: {
+      romance: {
+        price: 150,
+        description: "It's a romance novel.",
+      },
+      suspense: {
+        price: 200,
+        description: "It's a suspense novel.",
+      },
+      selfHelp: {
+        price: 100,
+        description: "It's a self-help book.",
       },
     },
   },
