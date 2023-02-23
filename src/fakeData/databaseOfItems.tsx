@@ -42,3 +42,5 @@ export const DatabaseOfItems = {
     },
   },
 };
+
+export default DatabaseOfItems;
