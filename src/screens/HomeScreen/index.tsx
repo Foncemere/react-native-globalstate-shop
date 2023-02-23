@@ -10,10 +10,6 @@ const HomeScreen = () => {
     return <GridTile id={item} />;
   };
 
-  const itemSeperator = () => {
-    return <View style={BaseStyles.standard_gap} />;
-  };
-
   return (
     <View style={{padding: 12, flex: 1}}>
       <Text>Home Search bar</Text>
@@ -22,10 +18,10 @@ const HomeScreen = () => {
       </View>
       <FlatList
         numColumns={2}
-        contentContainerStyle={{marginTop: 12}}
+        columnWrapperStyle={{justifyContent: 'space-between', gap: 12}}
+        contentContainerStyle={{marginTop: 12, gap: 12}}
         data={Object.keys(DatabaseOfItems)}
         renderItem={renderItem}
-        ItemSeparatorComponent={itemSeperator}
       />
     </View>
   );
