@@ -1,18 +1,10 @@
-import React from 'react';
-import type {PropsWithChildren} from 'react';
+import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import StackNavigation from './src/Navigation';
+import StackNavigation from './src/screens';
+import zustardStore from './src/store';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
