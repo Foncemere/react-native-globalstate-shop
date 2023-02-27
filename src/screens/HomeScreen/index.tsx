@@ -1,11 +1,10 @@
 import React from 'react';
-import {FlatList, Text, TextInput, View} from 'react-native';
+import {FlatList, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import Styles from './styles';
 import DatabaseOfItems from '../../fakeData/databaseOfItems';
 import {GridTile} from '../../components/GridTile';
-import BaseStyles from '../../baseStyling/styles';
 
-const HomeScreen = () => {
+const HomeScreen = props => {
   const renderItem = ({item, index}) => {
     return <GridTile id={item} />;
   };
@@ -13,8 +12,27 @@ const HomeScreen = () => {
   return (
     <View style={{padding: 12, flex: 1}}>
       <Text>Home Search bar</Text>
-      <View style={{flexDirection: 'row'}}>
+      <View
+        style={{
+          flexDirection: 'row',
+        }}>
         <TextInput style={Styles.input} />
+        <View
+          style={{
+            padding: 12,
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderWidth: 1,
+            borderLeftWidth: 0,
+            backgroundColor: '#d4dae3',
+          }}>
+          <TouchableOpacity
+            onPress={() => {
+              props.navigation.navigate('Checkout');
+            }}>
+            <Text>To Checkout</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <FlatList
         numColumns={2}
