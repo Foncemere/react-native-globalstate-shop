@@ -1,7 +1,7 @@
 export const DatabaseOfItems = {
   toys: {
     title: 'Toys',
-    items: {
+    data: {
       duck: {
         price: 12,
         description: "It's an ordinary duck.",

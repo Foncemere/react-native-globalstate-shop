@@ -10,8 +10,8 @@ const AisleScreen = props => {
     return (
       <View style={{borderWidth: 1, marginVertical: 16, padding: 12}}>
         <Text>{item}</Text>
-        <Text>{aisle.items[item].description}</Text>
-        <Text>${aisle.items[item].price}</Text>
+        <Text>{aisle.data[item].description}</Text>
+        <Text>${aisle.data[item].price}</Text>
       </View>
     );
   };
@@ -22,7 +22,7 @@ const AisleScreen = props => {
         <Button title={'Go back'} onPress={() => props.navigation.goBack()} />
         <Text>{aisle?.title}</Text>
       </View>
-      <FlatList data={Object.keys(aisle.items)} renderItem={renderAisleItems} />
+      <FlatList data={Object.keys(aisle.data)} renderItem={renderAisleItems} />
     </View>
   );
 };
