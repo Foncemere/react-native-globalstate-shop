@@ -1,18 +1,24 @@
 import React from 'react';
-import {Button, FlatList, Text, View} from 'react-native';
+import {Button, FlatList, Text, TouchableOpacity, View} from 'react-native';
 import zustardStore from '../../store';
 import BaseStyles from '../../baseStyling/styles';
 
 const AisleScreen = props => {
-  const aisle = zustardStore().wholestore[props.route.params.id];
+  const aisle = zustardStore.getState().wholestore[props.route.params.id];
+  const add = zustardStore.getState().addToCart;
 
   const renderAisleItems = ({item, index}) => {
     return (
-      <View style={{borderWidth: 1, marginVertical: 16, padding: 12}}>
+      <TouchableOpacity
+        style={{borderWidth: 1, marginVertical: 16, padding: 12}}
+        onPress={() => {
+          add(aisle.data[item]);
+          props.navigation.navigate('Checkout');
+        }}>
         <Text>{item}</Text>
         <Text>{aisle.data[item].description}</Text>
         <Text>${aisle.data[item].price}</Text>
-      </View>
+      </TouchableOpacity>
     );
   };
 
