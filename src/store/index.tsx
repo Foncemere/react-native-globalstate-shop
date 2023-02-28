@@ -4,14 +4,14 @@ import DatabaseOfItems from '../fakeData/databaseOfItems';
 const zustardStore = create(set => ({
   wholestore: DatabaseOfItems,
   cart: [],
-  addToCart: item =>
+  addToCart: (item, quantity) =>
     set(state => {
       const foundIndex = state.cart.findIndex(e => e.id === item.id) !== -1;
       if (foundIndex) {
         return {
           cart: state.cart.map((item, index) => {
             if (foundIndex) {
-              return {...item, count: item.count + 1};
+              return {...item, count: item.count + quantity};
             } else {
               return item;
             }

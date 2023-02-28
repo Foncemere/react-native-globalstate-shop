@@ -1,23 +1,34 @@
 import React from 'react';
-import {FlatList, Text, View} from 'react-native';
+import {Button, FlatList, Text, View} from 'react-native';
 import zustardStore from '../../store';
 
-export const CheckoutScreen = () => {
+export const CheckoutScreen = props => {
   const checkout = zustardStore(state => state.cart);
   return (
     <View>
       <View>
         <Text>For Checkout</Text>
+        <Button title={'Go back'} onPress={() => props.navigation.goBack()} />
       </View>
       <FlatList
         data={checkout}
         renderItem={({item}) => (
           <View>
-            <Text>{JSON.stringify(item)}</Text>
+            <Text>
+              {item.name}, ${item.price}, total: ${item.price * item.count}
+            </Text>
           </View>
         )}
-        contentContainerStyle={{backgroundColor: 'red'}}
+        contentContainerStyle={{padding: 16}}
       />
+      <View>
+        <Text>
+          total:{' '}
+          {checkout.reduce((acc, item) => {
+            return acc + item.count * item.price;
+          }, 0)}
+        </Text>
+      </View>
     </View>
   );
 };
