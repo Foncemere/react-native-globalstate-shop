@@ -10,6 +10,14 @@ export const Categories: CategoryType = {
   clothes: 'clothes',
   books: 'books',
 };
+
+export const CategoryTitle = {
+  [Categories.clothes]: 'Clothes',
+  [Categories.jewelries]: 'Jewels',
+  [Categories.toys]: 'Toys',
+  [Categories.books]: 'Books',
+};
+
 export const DatabaseOfItems = {
   1: {
     category: Categories.toys,

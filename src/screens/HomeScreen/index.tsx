@@ -1,7 +1,7 @@
 import React from 'react';
 import {FlatList, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import Styles from './styles';
-import DatabaseOfItems from '../../fakeData/databaseOfItems';
+import {Categories} from '../../fakeData/databaseOfItems';
 import {GridTile} from '../../components/GridTile';
 
 const HomeScreen = props => {
@@ -38,7 +38,7 @@ const HomeScreen = props => {
         numColumns={2}
         columnWrapperStyle={{justifyContent: 'space-between', gap: 12}}
         contentContainerStyle={{marginTop: 12, gap: 12}}
-        data={Object.keys(DatabaseOfItems)}
+        data={Object.keys(Categories)}
         renderItem={renderItem}
       />
     </View>
