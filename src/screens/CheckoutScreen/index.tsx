@@ -14,6 +14,7 @@ export const CheckoutScreen = props => {
         data={checkout}
         renderItem={({item}) => (
           <View>
+            <Text>Quantity: {item.count}</Text>
             <Text>
               {item.name}, ${item.price}, total: ${item.price * item.count}
             </Text>

@@ -12,8 +12,10 @@ const AisleScreen = props => {
       <TouchableOpacity
         style={{borderWidth: 1, marginVertical: 16, padding: 12}}
         onPress={() => {
-          add(aisle.data[item], 1);
-          props.navigation.navigate('Checkout');
+          props.navigation.navigate('ItemDetails', {
+            id: item,
+            category: props.route.params.id,
+          });
         }}>
         <Text>{item}</Text>
         <Text>{aisle.data[item].description}</Text>
