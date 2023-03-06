@@ -14,7 +14,7 @@ const zustardStore = create(set => ({
           count: newArray[foundIndex].count + quantity,
         };
       } else {
-        return {cart: state.cart.concat({...item, count: quantity})};
+        newArray.push({...item, count: quantity});
       }
       return {
         cart: newArray,
