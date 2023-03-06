@@ -1,5 +1,5 @@
 import {Text, TouchableOpacity, View} from 'react-native';
-import DatabaseOfItems from '../../fakeData/databaseOfItems';
+import DatabaseOfItems, {CategoryTitle} from '../../fakeData/databaseOfItems';
 import BaseStyles from '../../baseStyling/styles';
 import {useNavigation} from '@react-navigation/native';
 
@@ -13,7 +13,7 @@ export const GridTile = props => {
         paddingVertical: 30,
         ...BaseStyles.fill_and_center,
       }}>
-      <Text>{DatabaseOfItems[props.id].title}</Text>
+      <Text>{CategoryTitle[props.id]}</Text>
     </TouchableOpacity>
   );
 };
