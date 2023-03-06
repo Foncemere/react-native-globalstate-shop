@@ -6,19 +6,19 @@ const zustardStore = create(set => ({
   cart: [],
   addToCart: (item, quantity) =>
     set(state => {
-      const foundIndex = state.cart.findIndex(e => e.id === item.id) !== -1;
-      if (foundIndex) {
-        return {
-          cart: state.cart.map((item, index) => {
-            if (foundIndex) {
-              return {...item, count: item.count + quantity};
-            } else {
-              return item;
-            }
-          }),
+      const foundIndex = state.cart.findIndex(e => e.id === item.id);
+      const newArray = [...state.cart];
+      if (foundIndex !== -1) {
+        newArray[foundIndex] = {
+          ...newArray[foundIndex],
+          count: newArray[foundIndex].count + quantity,
         };
+      } else {
+        return {cart: state.cart.concat({...item, count: quantity})};
       }
-      return {cart: state.cart.concat({...item, count: 1})};
+      return {
+        cart: newArray,
+      };
     }),
 }));
 

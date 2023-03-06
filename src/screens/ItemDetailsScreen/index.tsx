@@ -5,7 +5,7 @@ import zustardStore from '../../store';
 export const ItemDetailsScreen = props => {
   const item = zustardStore.getState().wholestore[props.route.params.id];
   const add = zustardStore.getState().addToCart;
-  const [text, onChangeText] = React.useState('0');
+  const [text, onChangeText] = React.useState('1');
 
   return (
     <View style={{}}>
